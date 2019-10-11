@@ -26,7 +26,7 @@ class App extends React.Component {
   componentDidMount() {
     const chatManager = new ChatManager({
       instanceLocator,
-      userId: 'klew5',
+      userId: 'pish',
       tokenProvider: new TokenProvider({
         url: tokenUrl
       })
@@ -86,8 +86,9 @@ class App extends React.Component {
     return (
       <div className="app">
         <RoomList 
-        subscribeToRoom= {this.subscribeToRoom}
-        rooms= {[...this.state.availableRooms,...this.state.currentRooms]} />
+        roomId={this.state.roomId}
+        subscribeToRoom={this.subscribeToRoom}
+        rooms={[...this.state.availableRooms,...this.state.currentRooms]} />
         <MessageList messages={this.state.messages} />
         <SendMessageForm sendMessage={this.sendMessage} /> 
         <NewRoomForm />
